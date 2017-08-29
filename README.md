@@ -1,6 +1,6 @@
 # Event Collector Elements
 
-Theese two scripts add a variable called EventCollect or EventCollectElements in the window global object.
+Theese two scripts add a variable called EventCollector or EventCollectorElements in the window global object.
 
 Trusted for Google Chrome !
 
