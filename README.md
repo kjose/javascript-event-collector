@@ -36,10 +36,13 @@ You can configure the elements you want to target in the script.js :
 // Set filters for sepcific elements
 // ex: var filterSelector = '.exlink';
 // ex: var filterType = 'mouseover';
+
 var filterSelector = '#menu_main .menu_item .exlink';
 var filterType = 'mouseover';
+
 // True if you want to prevent the adding of the listener to the filtered element
 var disableListenerForElementsCatched = true;
+
 // True if you want to launch the debugger when an event listener is added to filtered element (the console has to be opened)
 var debugMode = true;
 ```
