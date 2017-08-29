@@ -2,14 +2,16 @@
 
 Theese two scripts add a variable called EventCollect or EventCollectElements in the window global object.
 
+Trusted for Google Chrome !
+
 The events collected are a json like this : 
 
 ```
 {
-  selector    : '#selector',      // the css selector path to the element
-  elem        : span,             // the dom element
-  type        : type,             // the type of the event (mouseover, click, etc)
-  listener    : listener,         // the function attached to the element
+  selector    : '#selector',          // the css selector path to the element
+  elem        : 'span',               // the dom element
+  type        : 'click',              // the type of the event (mouseover, click, etc)
+  listener    : function(a, b) {},    // the function attached to the element
 }
 ```
 
@@ -38,9 +40,16 @@ var filterSelector = '#menu_main .menu_item .exlink';
 var filterType = 'mouseover';
 // True if you want to prevent the adding of the listener to the filtered element
 var disableListenerForElementsCatched = true;
-// True if you want to launch the debugger when an event listener is added to filtered element
+// True if you want to launch the debugger when an event listener is added to filtered element (the console has to be opened)
 var debugMode = true;
 ```
+
+## Use case
+
+You can use theese scripts for examples : 
+- debugging
+- remove all the event listeners in the page
+- remove the listeners of a specific element
 
 ## Thanks
 
