@@ -27,6 +27,23 @@ Add a script of your choice script.js or script.win.doc.js.
 
 Be sure to configure your script in order it loads at the BEGINNING of the document loading.
 
+## Test it ! 
+
+```
+setInterval(function() {
+    console.log('Interval here :P');
+}, 100);
+setTimeout(function() {
+    console.log('Timeout after 600ms');
+}, 600);
+setTimeout(function() {
+    console.log('Timeout after 6000ms');
+}, 6000);
+
+setTimeout(function() {
+    window.cleanAll();
+}, 5000);
+```
 
 ## Settings
 
