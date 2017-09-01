@@ -1,10 +1,15 @@
-# Event Collector Elements
+# Javascript X Collector
 
-Theese two scripts add a variable called EventCollector or EventCollectorElements in the window global object.
+This scripts adds 4 variables in the global window object : 
+
+- EventCollector : collect all event listeners attached in the document
+- EventDocumentCollector : collect all event listeners attached on document or window
+- IntervalCollector, TimeoutCollector : collect all the triggers attached with setTimeout, setInterval functions
+- XHRCollector : collect all the ajax request sent
 
 Trusted for Google Chrome !
 
-The events collected are a json like this : 
+The <EventCollector> events collected are a json like this : 
 
 ```
 {
@@ -20,12 +25,9 @@ The events collected are a json like this :
 Install a plugin like tampermonkey 
 (https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=fr).
 
-Add a script of your choice script.js or script.win.doc.js.
-
-- script.js collects ALL the event listeners of all elements in the website.
-- script.win.doc.js collects ALL the event listeners attached to window and document.
-
+Add the script.js at the top of your <head> tag.
 Be sure to configure your script in order it loads at the BEGINNING of the document loading.
+  
 
 ## Test it ! 
 
@@ -47,7 +49,7 @@ setTimeout(function() {
 
 ## Settings
 
-You can configure the elements you want to target in the script.js : 
+You can configure the elements you want to target in the script.js (for EventCollector) : 
 
 ```
 // Set filters for sepcific elements
@@ -69,6 +71,8 @@ var debugMode = true;
 You can use theese scripts for examples : 
 - debugging
 - remove all the event listeners in the page
+- remove all the set intervals / set timeout
+- remove all the ajax requests in the page
 - remove the listeners of a specific element
 
 ## Thanks
