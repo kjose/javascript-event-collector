@@ -11,7 +11,7 @@ Trusted for Google Chrome !
 
 ## Definition
 
-The <EventCollector> events collected are a json like this : 
+The EventCollector events collected are a json like this : 
 
 ```
 {
@@ -22,7 +22,7 @@ The <EventCollector> events collected are a json like this :
 }
 ```
 
-The <EventDocumentCollector> events collected are a json like this : 
+The EventDocumentCollector events collected are a json like this : 
 
 ```
 {
@@ -32,7 +32,7 @@ The <EventDocumentCollector> events collected are a json like this :
 }
 ```
 
-The <IntervalCollector|TimeoutCollector> events collected are a json like this : 
+The IntervalCollector|TimeoutCollector events collected are a json like this : 
 
 ```
 {
@@ -43,7 +43,7 @@ The <IntervalCollector|TimeoutCollector> events collected are a json like this :
 ```
 
 
-The <XHRCollector> collected are a json like this : 
+The XHRCollector collected are a json like this : 
 
 ```
 {
