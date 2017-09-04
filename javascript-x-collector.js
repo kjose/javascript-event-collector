@@ -155,8 +155,8 @@
                         s = s.previousElementSibling;
                     }
                     if (el.className) {
-                        names.unshift('.'+el.className.replace(' ', '.')+":nth-child("+c+")");
-                    } else if (fullpath) {
+                        names.unshift('.'+el.className.trim().replace(/\s+/g, '.')+":nth-child("+c+")");
+                    } else {
                         names.unshift(el.tagName+":nth-child("+c+")");
                     }
                 }
