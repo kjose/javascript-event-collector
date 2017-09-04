@@ -66,21 +66,25 @@
     // Replace method setTimeout
     var oldAddSetTimeout = window.setTimeout;
     window.setTimeout = function(fn, delay) {
+        var tid = oldAddSetTimeout.apply(this, arguments);
         window.TimeoutCollector.push({
-            trigger: oldAddSetTimeout.apply(this, arguments),
+            trigger: tid,
             fn: fn,
             delay: delay
         });
+        return tid;
     };
 
     // Replace method setTimeout
     var oldAddSetInterval = window.setInterval;
     window.setInterval = function(fn, delay) {
+        var iid = oldAddSetInterval.apply(this, arguments);
         window.IntervalCollector.push({
-            trigger: oldAddSetInterval.apply(this, arguments),
+            trigger: iid,
             fn: fn,
             delay: delay
         });
+        return iid;
     };
 
     // Replace method for sending XmlHttpRequest
