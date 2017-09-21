@@ -48,6 +48,8 @@
         window.cleanAllTimeout();
         window.cleanAllInterval();
         window.cleanAllXHR();
+        Function.prototype.bind = Function.prototype.bindOriginal;
+        Function.prototype.apply = Function.prototype.applyOriginal;
     };
 
     /**
@@ -166,6 +168,10 @@
         var separator = fullpath ? " > " : " ";
         return names.join(separator);
     }
+
+    // Keep base javascript functions
+    Function.prototype.bindOriginal = Function.prototype.bind;
+    Function.prototype.applyOriginal = Function.prototype.apply;
 
 
 })();
