@@ -16,16 +16,14 @@
 
     // Init widnow extends objects
     window.EventDocumentCollector = [];
-    window.EventCollector = [];
     window.XHRCollector = [];
     window.TimeoutCollector = [];
     window.IntervalCollector = [];
 
     window.cleanAllEvents = function() {
         var i;
-        for(i=0; i<EventCollector.length; i++) EventCollector[i].element.removeEventListener(EventCollector[i].type, EventCollector[i].listener, EventCollector[i].useCapture);
         for(i=0; i<EventDocumentCollector.length; i++) EventDocumentCollector[i].element.removeEventListener(EventDocumentCollector[i].type, EventDocumentCollector[i].listener, EventDocumentCollector[i].useCapture);
-        window.EventCollector = window.EventDocumentCollector = [];
+        window.EventDocumentCollector = [];
     };
 
     window.cleanAllTimeout = function() {
@@ -96,31 +94,6 @@
         oldXHRSend.apply(this, arguments);
     };
 
-    // Replace method addEventListener for DOM elements
-    var oldAddEventListener = Element.prototype.addEventListener;
-    Element.prototype.addEventListener = function(type, listener, useCapture) {
-        var selector = path(this);
-        var error = new Error();
-        var data = {
-            selector: selector,
-            element: this,
-            type: type,
-            listener: listener,
-            useCapture: useCapture
-        };
-        if (selector.indexOf(filterSelector) !== -1 && type.indexOf(filterType) !== -1) {
-            window.EventCollector.push(data);
-            if (debugMode) {
-                debugger;
-            }
-            if (!disableListenerForElementsCatched) {
-                oldAddEventListener.apply(this, arguments);
-            }
-        } else {
-            oldAddEventListener.apply(this, arguments);
-        }
-    };
-
     // Replace method addEventListener for Window | Document elements
     function resetEventListenerMethod(el) {
         var oldFn = el.addEventListener;
@@ -131,43 +104,11 @@
                 listener: listener,
                 useCapture: useCapture
             });
-            oldFn.call(el, type, listener, useCapture);
+            return oldFn.call(el, type, listener, useCapture);
         };
     }
     resetEventListenerMethod(window);
     resetEventListenerMethod(document);
-
-
-    // Function
-    function path(el, fullpath){
-        var names = [];
-        fullpath = fullpath || false;
-        while (el.parentNode){
-            if (el.id){
-                names.unshift('#'+el.id);
-                break;
-            }else{
-                if (el==el.ownerDocument.documentElement) names.unshift(el.tagName);
-                else{
-                    var c = 1;
-                    var s = el.previousElementSibling;
-                    while (s){
-                        // if (s.className == el.className) c++;
-                        c++;
-                        s = s.previousElementSibling;
-                    }
-                    if (el.className) {
-                        names.unshift('.'+el.className.trim().replace(/\s+/g, '.')+":nth-child("+c+")");
-                    } else {
-                        names.unshift(el.tagName+":nth-child("+c+")");
-                    }
-                }
-                el=el.parentNode;
-            }
-        }
-        var separator = fullpath ? " > " : " ";
-        return names.join(separator);
-    }
 
     // Keep base javascript functions
     Function.prototype.bindOriginal = Function.prototype.bind;
