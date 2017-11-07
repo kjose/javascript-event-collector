@@ -2,7 +2,6 @@
 
 This script adds 4 variables in the global window object : 
 
-- EventCollector : collect all event listeners attached in the document
 - EventDocumentCollector : collect all event listeners attached on document or window
 - IntervalCollector, TimeoutCollector : collect all the triggers attached with setTimeout, setInterval functions
 - XHRCollector : collect all the ajax request sent
@@ -10,17 +9,6 @@ This script adds 4 variables in the global window object :
 Trusted for Google Chrome !
 
 ## Definition
-
-The EventCollector events collected are a json like this : 
-
-```
-{
-  selector    : '#selector',          // the css selector path to the element
-  elem        : 'span',               // the dom element
-  type        : 'click',              // the type of the event (mouseover, click, etc)
-  listener    : function(a, b) {},    // the function attached to the element
-}
-```
 
 The EventDocumentCollector events collected are a json like this : 
 
@@ -58,7 +46,7 @@ Install a plugin like tampermonkey
 
 OR 
 
-Add the script.js at the top of your <head> tag.  
+Add the script.js at the top of your head tag.  
 Be sure to configure your script in order it loads at the BEGINNING of the document loading.
   
 ## Methods
@@ -98,24 +86,6 @@ setTimeout(function() {
 }, 5000);
 ```
 
-## Settings
-
-You can configure the elements you want to target in the script.js (for EventCollector) : 
-
-```
-// Set filters for sepcific elements
-// ex: var filterSelector = '.exlink';
-// ex: var filterType = 'mouseover';
-
-var filterSelector = '#menu_main .menu_item .exlink';
-var filterType = 'mouseover';
-
-// True if you want to prevent the adding of the listener to the filtered element
-var disableListenerForElementsCatched = true;
-
-// True if you want to launch the debugger when an event listener is added to filtered element (the console has to be opened)
-var debugMode = true;
-```
 
 ## Use case
 
