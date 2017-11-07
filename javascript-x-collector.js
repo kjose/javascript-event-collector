@@ -57,12 +57,6 @@
     // This code must be loaded before all js code of website
     console.log('JS starting collecting events ...');
 
-    // Parameters
-    var filterSelector = '';
-    var filterType = '';
-    var debugMode = false; // option to enable debug mode (will open debugger when listener attached)
-    var disableListenerForElementsCatched = false; // option to disable the listener for elements matching with filterSelector and filterType
-
     // Replace method setTimeout
     var oldAddSetTimeout = window.setTimeout;
     window.setTimeout = function(fn, delay) {
