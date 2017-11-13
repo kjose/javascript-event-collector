@@ -48,6 +48,9 @@
         window.cleanAllXHR();
         Function.prototype.bind = Function.prototype.bindOriginal;
         Function.prototype.apply = Function.prototype.applyOriginal;
+        window.setTimeout = window.setTimeoutOriginal;
+        window.setInterval = window.setIntervalOriginal;
+        window.console = window.consoleOriginal;
     };
 
     /**
@@ -107,6 +110,8 @@
     // Keep base javascript functions
     Function.prototype.bindOriginal = Function.prototype.bind;
     Function.prototype.applyOriginal = Function.prototype.apply;
-
+    window.consoleOriginal = window.console;
+    window.setIntervalOriginal = window.setInterval;
+    window.setTimeoutOriginal = window.setTimeout;
 
 })();
