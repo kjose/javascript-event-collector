@@ -51,6 +51,7 @@
         window.setTimeout = window.setTimeoutOriginal;
         window.setInterval = window.setIntervalOriginal;
         window.console = window.consoleOriginal;
+        window.Promise = window.PromiseOriginal;
     };
 
     /**
@@ -113,5 +114,6 @@
     window.consoleOriginal = window.console;
     window.setIntervalOriginal = window.setInterval;
     window.setTimeoutOriginal = window.setTimeout;
+    window.PromiseOriginal = window.Promise;
 
 })();
