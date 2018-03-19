@@ -48,11 +48,12 @@
         window.cleanAllXHR();
         Function.prototype.bind = Function.prototype.bindOriginal;
         Function.prototype.apply = Function.prototype.applyOriginal;
+        XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.openOriginal;
+        XMLHttpRequest.prototype.send = XMLHttpRequest.prototype.sendOriginal;
         window.setTimeout = window.setTimeoutOriginal;
         window.setInterval = window.setIntervalOriginal;
         window.console = window.consoleOriginal;
         window.Promise = window.PromiseOriginal;
-        window.XMLHttpRequest = window.XMLHttpRequestOriginal;
     };
 
     /**
@@ -112,10 +113,11 @@
     // Keep base javascript functions
     Function.prototype.bindOriginal = Function.prototype.bind;
     Function.prototype.applyOriginal = Function.prototype.apply;
+    XMLHttpRequest.prototype.openOriginal = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.sendOriginal = XMLHttpRequest.prototype.send;
     window.consoleOriginal = window.console;
     window.setIntervalOriginal = window.setInterval;
     window.setTimeoutOriginal = window.setTimeout;
-    window.PromiseOriginal = window.Promise;
-    window.XMLHttpRequestOriginal = window.XMLHttpRequest;
+    window.PromiseOriginal = window.Promise; // use prototype maybe ?
 
 })();
