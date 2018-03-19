@@ -52,6 +52,7 @@
         window.setInterval = window.setIntervalOriginal;
         window.console = window.consoleOriginal;
         window.Promise = window.PromiseOriginal;
+        window.XMLHttpRequest = window.XMLHttpRequestOriginal;
     };
 
     /**
@@ -115,5 +116,6 @@
     window.setIntervalOriginal = window.setInterval;
     window.setTimeoutOriginal = window.setTimeout;
     window.PromiseOriginal = window.Promise;
+    window.XMLHttpRequestOriginal = window.XMLHttpRequest;
 
 })();
