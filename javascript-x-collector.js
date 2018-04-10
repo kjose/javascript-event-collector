@@ -50,7 +50,7 @@
         Function.prototype.apply = Function.prototype.applyOriginal;
         XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.openOriginal;
         XMLHttpRequest.prototype.send = XMLHttpRequest.prototype.sendOriginal;
-        Promise.prototype.all = Promise.prototype.allOriginal;
+        window.Promise = window.PromiseOriginal;
         window.setTimeout = window.setTimeoutOriginal;
         window.setInterval = window.setIntervalOriginal;
         window.console = window.consoleOriginal;
@@ -115,7 +115,7 @@
     Function.prototype.applyOriginal = Function.prototype.apply;
     XMLHttpRequest.prototype.openOriginal = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.sendOriginal = XMLHttpRequest.prototype.send;
-    Promise.prototype.allOriginal = Promise.prototype.all;
+    window.PromiseOriginal = window.Promise;
     window.consoleOriginal = window.console;
     window.setIntervalOriginal = window.setInterval;
     window.setTimeoutOriginal = window.setTimeout;
