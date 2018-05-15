@@ -50,6 +50,7 @@
         Function.prototype.apply = Function.prototype.applyOriginal;
         XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.openOriginal;
         XMLHttpRequest.prototype.send = XMLHttpRequest.prototype.sendOriginal;
+        EventTarget.prototype.addEventListener = EventTarget.prototype.addEventListenerOriginal;
         window.Promise = window.PromiseOriginal;
         window.setTimeout = window.setTimeoutOriginal;
         window.setInterval = window.setIntervalOriginal;
@@ -97,14 +98,15 @@
     // Replace method addEventListener for Window | Document elements
     function resetEventListenerMethod(el) {
         var oldFn = el.addEventListener;
-        el.addEventListener = function(type, listener, useCapture) {
+        el.addEventListener = function(type, listener, options, wantsUntrusted) {
             window.EventDocumentCollector.push({
                 element: el,
                 type: type,
                 listener: listener,
-                useCapture: useCapture
+                options: options,
+                wantsUntrusted: wantsUntrusted
             });
-            return oldFn.call(el, type, listener, useCapture);
+            return oldFn.call(el, type, listener, options, wantsUntrusted);
         };
     }
     resetEventListenerMethod(window);
@@ -115,6 +117,7 @@
     Function.prototype.applyOriginal = Function.prototype.apply;
     XMLHttpRequest.prototype.openOriginal = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.sendOriginal = XMLHttpRequest.prototype.send;
+    EventTarget.prototype.addEventListenerOriginal = EventTarget.prototype.addEventListener;
     window.PromiseOriginal = window.Promise;
     window.consoleOriginal = window.console;
     window.setIntervalOriginal = window.setInterval;
