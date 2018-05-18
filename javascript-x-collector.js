@@ -111,6 +111,7 @@
     }
     resetEventListenerMethod(window);
     resetEventListenerMethod(document);
+    resetEventListenerMethod(document.documentElement);
 
     // Keep base javascript functions
     Function.prototype.bindOriginal = Function.prototype.bind;
