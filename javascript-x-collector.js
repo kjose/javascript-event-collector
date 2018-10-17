@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Javascript X Collector
-// @version      0.1
+// @version      1.1
 // @description  Register all events in a collection
 // @author       Kévin José
 // @match        http://*/*
@@ -41,7 +41,7 @@
         window.XHRCollector = [];
     };
 
-    window.cleanAll = function() {
+    window.cleanAll = window.abtastyCleanAll = function() {
         window.cleanAllEvents();
         window.cleanAllTimeout();
         window.cleanAllInterval();
@@ -51,6 +51,8 @@
         XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.openOriginal;
         XMLHttpRequest.prototype.send = XMLHttpRequest.prototype.sendOriginal;
         EventTarget.prototype.addEventListener = EventTarget.prototype.addEventListenerOriginal;
+        Object.keys = Object.keysOriginal;
+        // Object.prototype.hasOwnProperty = Object.prototype.hasOwnPropertyOriginal;
         window.Promise = window.PromiseOriginal;
         window.setTimeout = window.setTimeoutOriginal;
         window.setInterval = window.setIntervalOriginal;
@@ -119,6 +121,8 @@
     XMLHttpRequest.prototype.openOriginal = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.sendOriginal = XMLHttpRequest.prototype.send;
     EventTarget.prototype.addEventListenerOriginal = EventTarget.prototype.addEventListener;
+    Object.keysOriginal = Object.keys;
+    // Object.prototype.hasOwnPropertyOriginal = Object.prototype.hasOwnProperty;
     window.PromiseOriginal = window.Promise;
     window.consoleOriginal = window.console;
     window.setIntervalOriginal = window.setInterval;
