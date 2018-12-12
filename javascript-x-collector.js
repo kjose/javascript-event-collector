@@ -54,6 +54,7 @@
         Object.keys = Object.keysOriginal;
         // Object.prototype.hasOwnProperty = Object.prototype.hasOwnPropertyOriginal;
         window.Promise = window.PromiseOriginal;
+        window.Event = window.EventOriginal;
         window.setTimeout = window.setTimeoutOriginal;
         window.setInterval = window.setIntervalOriginal;
         window.console = window.consoleOriginal;
@@ -124,6 +125,7 @@
     Object.keysOriginal = Object.keys;
     // Object.prototype.hasOwnPropertyOriginal = Object.prototype.hasOwnProperty;
     window.PromiseOriginal = window.Promise;
+    window.EventOriginal = window.Event;
     window.consoleOriginal = window.console;
     window.setIntervalOriginal = window.setInterval;
     window.setTimeoutOriginal = window.setTimeout;
