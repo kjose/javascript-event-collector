@@ -48,6 +48,7 @@
         window.cleanAllXHR();
         Function.prototype.bind = Function.prototype.bindOriginal;
         Function.prototype.apply = Function.prototype.applyOriginal;
+        String.prototype.replace = String.prototype.replaceOriginal;
         XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.openOriginal;
         XMLHttpRequest.prototype.send = XMLHttpRequest.prototype.sendOriginal;
         EventTarget.prototype.addEventListener = EventTarget.prototype.addEventListenerOriginal;
@@ -119,6 +120,7 @@
     // Keep base javascript functions
     Function.prototype.bindOriginal = Function.prototype.bind;
     Function.prototype.applyOriginal = Function.prototype.apply;
+    String.prototype.replaceOriginal = String.prototype.replace;
     XMLHttpRequest.prototype.openOriginal = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.sendOriginal = XMLHttpRequest.prototype.send;
     EventTarget.prototype.addEventListenerOriginal = EventTarget.prototype.addEventListener;
