@@ -59,6 +59,7 @@
         window.setTimeout = window.setTimeoutOriginal;
         window.setInterval = window.setIntervalOriginal;
         window.console = window.consoleOriginal;
+        window.XMLHttpRequest = window.XMLHttpRequestOriginal;
     };
 
     /**
@@ -131,5 +132,6 @@
     window.consoleOriginal = window.console;
     window.setIntervalOriginal = window.setInterval;
     window.setTimeoutOriginal = window.setTimeout;
+    window.XMLHttpRequestOriginal = window.XMLHttpRequest;
 
 })();
